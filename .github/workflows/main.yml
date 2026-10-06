@@ -1,0 +1,17 @@
+name: Secure Secret Demo
+
+on:
+  workflow_dispatch:
+
+jobs:
+  secret-demo:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Display secure secret
+        run: |
+          echo "GitHub Actions is running."
+          echo "The secret is available to the workflow."
+          echo "Secret length: ${#DEMO_SECRET}"
+        env:
+          DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
